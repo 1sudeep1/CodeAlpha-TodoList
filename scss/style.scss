@@ -13,7 +13,7 @@ body {
     }
 
     textarea {
-        width: 40%;
+        width: 50%;
         height: 30vh;
         border-radius: 1%;
     }
@@ -23,45 +23,59 @@ body {
         background-color: rgb(173, 2, 136);
         border: none;
         font-size: large;
-        width: 8%;
+        max-width: 20%;
         margin-top: 15px;
         color: #fff;
         border-radius: 10px;
         cursor: pointer;
     }
 
+    #note-title{
+        width: 20%;
+        padding: 5px;
+        margin-bottom: 5px;
+    }
 }
 
 #result-section {
     display: none;
-    .result-card {
-        background-color: #fff;
-        box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-        margin-top: 5rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        color: black;
-        padding: 10px;
-        border-radius: 5px;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-        .crud-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 2px;
-            .delete {
-                background-color: red;
-                border: none;
-                color: #fff;
-                padding: 2px 5px;
-            }
+.result-card {
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 10px;
+    border: none;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: auto;
+    border-radius: 5px;
+}
 
-            .edit {
-                background-color: green;
-                border: none;
-                color: #fff;
-                padding: 2px 5px;
-            }
-        }
+.result-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.crud-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+
+    .delete {
+        background-color: red;
+        border: none;
+        color: #fff;
+        padding: 2px 5px;
     }
+
+    .edit {
+        background-color: green;
+        border: none;
+        color: #fff;
+        padding: 2px 5px;
+    }
+
 }
