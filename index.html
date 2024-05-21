@@ -7,10 +7,24 @@
     <link rel="stylesheet" href="/scss/style.css">
 </head>
 <body>
-    <section class="main">
+    <section id="main">
         <h1>To-Do List</h1>
-        <textarea name="" id=""></textarea>
-        <button>Save</button>
+        <textarea name="" id="text-area"></textarea>
+        <button class="save">Save</button>
+    </section>
+    <section id="result-section">
+        <div class="result-card">
+            <div id="listResult">
+            </div>
+            <div class="crud-buttons">
+                <button class="delete">
+                    Delete
+                </button>
+                <button class="edit">
+                    Edit
+                </button>
+            </div>
+        </div>
     </section>
     <script src="/js/index.js"></script>
 </body>
