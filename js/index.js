@@ -7,13 +7,12 @@ document.querySelector('.save').onclick = handleButton;
 let currentEditCard = null;
 
 function handleButton() {
-    const noteTitle = document.querySelector('#note-title').value || 'Untitled';
-    const listResult = document.querySelector('#text-area').value;
+    const noteTitle = document.querySelector('#note-title').value.trim() || 'Untitled';
+    const listResult = document.querySelector('#text-area').value.trim();
 
     if (listResult.length > 0) {
         if (currentEditCard) {
-            currentEditCard.querySelector('.result-title').innerText = noteTitle;
-            currentEditCard.querySelector('.result-text').innerHTML = listResult.replace(/\n/g, '<br>');
+            updateNoteCard(currentEditCard, noteTitle, listResult);
             saveNotes();
             currentEditCard = null;
         } else {
@@ -24,9 +23,12 @@ function handleButton() {
         document.querySelector('#result-section').style.display = 'flex';
         document.querySelector('#note-title').value = '';
         document.querySelector('#text-area').value = '';
-    } else {
-        document.querySelector('#result-section').style.display = 'none';
     }
+}
+
+function updateNoteCard(card, title, content) {
+    card.querySelector('.result-title').innerText = title;
+    card.querySelector('.result-text').innerHTML = content.replace(/\n/g, '<br>');
 }
 
 function addNoteToDOM(title, content) {
@@ -63,7 +65,7 @@ function addNoteToDOM(title, content) {
     editButton.innerText = 'Edit';
     editButton.onclick = function () {
         document.querySelector('#note-title').value = resultTitle.innerText === 'Untitled' ? '' : resultTitle.innerText;
-        document.querySelector('#text-area').value = resultText.innerText;
+        document.querySelector('#text-area').value = resultText.innerText.replace(/<br>/g, '\n');
         currentEditCard = resultCard;
     };
     crudButtons.appendChild(editButton);
